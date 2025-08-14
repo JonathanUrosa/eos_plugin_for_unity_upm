@@ -6481,9 +6481,10 @@ namespace Epic.OnlineServices
 		internal delegate void EOS_P2P_QueryNATTypeDelegate(IntPtr handle, ref P2P.QueryNATTypeOptionsInternal options, IntPtr clientData, P2P.OnQueryNATTypeCompleteCallbackInternal completionDelegate);
 		internal static EOS_P2P_QueryNATTypeDelegate EOS_P2P_QueryNATType;
 
-		[UnmanagedFunctionPointer(Common.LIBRARY_CALLING_CONVENTION)]
+		/*[UnmanagedFunctionPointer(Common.LIBRARY_CALLING_CONVENTION)]
 		internal delegate Result EOS_P2P_ReceivePacketDelegate(IntPtr handle, ref P2P.ReceivePacketOptionsInternal options, out IntPtr outPeerId, IntPtr outSocketId, out byte outChannel, IntPtr outData, out uint outBytesWritten);
 		internal static EOS_P2P_ReceivePacketDelegate EOS_P2P_ReceivePacket;
+		*/
 
 		[UnmanagedFunctionPointer(Common.LIBRARY_CALLING_CONVENTION)]
 		internal delegate void EOS_P2P_RemoveNotifyIncomingPacketQueueFullDelegate(IntPtr handle, ulong notificationId);
@@ -8635,8 +8636,8 @@ namespace Epic.OnlineServices
 		[DllImport(Common.LIBRARY_NAME, EntryPoint="EOS_P2P_QueryNATType", CallingConvention=Common.LIBRARY_CALLING_CONVENTION)]
 		internal static extern void EOS_P2P_QueryNATType(IntPtr handle, ref P2P.QueryNATTypeOptionsInternal options, IntPtr clientData, P2P.OnQueryNATTypeCompleteCallbackInternal completionDelegate);
 
-		[DllImport(Common.LIBRARY_NAME, EntryPoint="EOS_P2P_ReceivePacket", CallingConvention=Common.LIBRARY_CALLING_CONVENTION)]
-		internal static extern Result EOS_P2P_ReceivePacket(IntPtr handle, ref P2P.ReceivePacketOptionsInternal options, out IntPtr outPeerId, IntPtr outSocketId, out byte outChannel, IntPtr outData, out uint outBytesWritten);
+		// [DllImport(Common.LIBRARY_NAME, EntryPoint="EOS_P2P_ReceivePacket", CallingConvention=Common.LIBRARY_CALLING_CONVENTION)]
+		// internal static extern Result EOS_P2P_ReceivePacket(IntPtr handle, ref P2P.ReceivePacketOptionsInternal options, out IntPtr outPeerId, IntPtr outSocketId, out byte outChannel, IntPtr outData, out uint outBytesWritten);
 
 		[DllImport(Common.LIBRARY_NAME, EntryPoint="EOS_P2P_RemoveNotifyIncomingPacketQueueFull", CallingConvention=Common.LIBRARY_CALLING_CONVENTION)]
 		internal static extern void EOS_P2P_RemoveNotifyIncomingPacketQueueFull(IntPtr handle, ulong notificationId);
