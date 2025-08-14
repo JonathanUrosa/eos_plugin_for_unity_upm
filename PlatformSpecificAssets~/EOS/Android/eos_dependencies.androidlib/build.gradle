@@ -1,18 +1,20 @@
 buildscript {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
         flatDir(dirs: 'libs')
     }
     
     dependencies {
-        classpath "com.android.tools.build:gradle:3.6.0"
+        classpath 'com.android.tools.build:gradle:8.7.2'  
     }
 }
 
 apply plugin: 'com.android.library'
 
 android {
+    namespace 'com.epicgames.eos'
+    
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
@@ -22,17 +24,23 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
-
-    compileSdkVersion **APIVERSION**
-    buildToolsVersion '**BUILDTOOLS**'
+    
+    compileSdk 35                    
+    
     defaultConfig {
-        targetSdkVersion **TARGETSDKVERSION**
+        targetSdkVersion 35          
+        minSdkVersion 21            
+    }
+    
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17    
+        targetCompatibility JavaVersion.VERSION_17   
     }
 }
+
 dependencies {
-        implementation 'androidx.appcompat:appcompat:1.5.1'
-        implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-        implementation 'androidx.security:security-crypto:1.0.0'
-        implementation 'androidx.browser:browser:1.4.0'
-    //api fileTree(dir: 'libs', include: ['*.aar'])
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.security:security-crypto:1.1.0-alpha06'
+    implementation 'androidx.browser:browser:1.6.0'
 }
